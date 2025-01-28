@@ -1,0 +1,233 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Arial", sans-serif; /* Clean, readable font */
+  overflow: hidden;
+  background-color: #dfe3e6; /* Light grey background */
+}
+
+body {
+  color: #333; /* Dark grey text for better readability */
+}
+
+.left-navbar {
+  width: 280px; /* Fixed width */
+  height: 100vh; /* Full viewport height */
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #ffffff; /* White background for navbar */
+  border-right: 2px solid #e0e0e0; /* Subtle border to separate navbar */
+  padding-top: 20px;
+  overflow-y: auto; /* Enable scrolling if content overflows */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.left-navbar::-webkit-scrollbar {
+  width: 8px; /* Slim scrollbar */
+}
+
+.left-navbar::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Track background */
+}
+
+.left-navbar::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1; /* Thumb color */
+  border-radius: 10px;
+}
+
+.left-navbar::-webkit-scrollbar-thumb:hover {
+  background-color: #a0a0a0; /* Darker thumb on hover */
+}
+
+/* Add border between tree nodes */
+.tree-node {
+  padding: 8px 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1px solid #eaeaea; /* Light grey border between nodes */
+  transition: all 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+.tree-node:last-child {
+  border-bottom: none; /* Remove border for the last node */
+}
+
+.tree-node.level-0 {
+  font-size: 1.2rem; /* Larger for root nodes */
+  font-weight: bold;
+  color: #2c3e50; /* Dark blue for root nodes */
+}
+
+.tree-node.level-1 {
+  font-size: 1rem;
+  color: #34495e; /* Slightly lighter blue for level 1 */
+}
+
+.tree-node.level-2 {
+  font-size: 0.9rem;
+  color: #5d6d7e; /* Muted grey-blue for level 2 */
+}
+
+.tree-node.level-3 {
+  font-size: 0.85rem;
+  color: #7f8c8d; /* Muted grey for level 3 */
+}
+
+.tree-node.level-4 {
+  font-size: 0.8rem;
+  color: #bdc3c7; /* Light grey for level 4 */
+}
+
+.node-header {
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  padding: 4px 8px;
+  transition: background-color 0.2s ease;
+}
+
+.node-header:hover {
+  background-color: #f0f0f5; /* Subtle hover background */
+}
+
+.arrow {
+  cursor: pointer;
+  margin-right: 8px;
+  color: #7f8c8d; /* Muted grey */
+  transition: color 0.2s ease;
+}
+
+.arrow:hover {
+  color: #34495e; /* Darker grey on hover */
+}
+
+.node-label {
+  cursor: pointer;
+  flex-grow: 1;
+  padding: 2px 4px;
+  border-left: 2px solid transparent; /* Invisible by default */
+  transition: border-color 0.3s ease;
+}
+
+.node-label:hover {
+  color: #2c3e50; /* Darker text on hover */
+  border-left: 2px solid #2c3e50; /* Highlighted border on hover */
+}
+
+.node-children {
+  padding-left: 16px; /* Indent child nodes */
+}
+
+.content {
+  margin-left: 280px;
+  padding: 20px;
+  overflow-y: auto;
+  height: calc(100vh - 40px); /* Full height with padding */
+  background-color: #f7f8fa; /* Light grey content background */
+  border-radius: 12px;
+  border: 2px solid #e0e0e0; /* Border around content */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.content h1 {
+  font-size: 2rem;
+  color: #2c3e50; /* Dark blue heading */
+  margin-bottom: 16px;
+  border-bottom: 1px solid #eaeaea; /* Add a bottom border below the heading */
+  padding-bottom: 8px;
+}
+
+.content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ffffff; /* Muted grey */
+  border-top: 1px solid #9b9696; /* Add border above paragraphs */
+  padding-top: 12px;
+}
+
+/* Bold style for expanded nodes */
+.bold {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .left-navbar {
+    width: 220px;
+  }
+
+  .content {
+    margin-left: 220px;
+  }
+}
+
+.selected-container {
+  position: fixed;
+  top: 50%;
+  left: 55%; /* Center the container relative to the content area */
+  transform: translate(-50%, -50%);
+  width: 1050px;
+  height: 500px; /* Adjusted height */
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 2px solid #e0e0e0;
+  display: flex;
+  flex-direction: column; /* Ensure flex alignment */
+  align-items: flex-start; /* Align content to the start */
+  justify-content: flex-start; /* Align items to the top */
+  z-index: 10;
+  padding: 10px; /* Padding for spacing */
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.options-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow options to wrap to the next line */
+  justify-content: flex-start; /* Align items to the left */
+  align-items: center; /* Vertically center items */
+  width: 100%; /* Full width of the parent container */
+  padding: 5px; /* Minimal padding for the container */
+  background-color: #ffffff; /* White background for a clean look */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow below the options */
+  border-bottom: 2px solid #ddd; /* Add a bottom border */
+  box-sizing: border-box; /* Include padding in width calculations */
+}
+.option {
+  font-size: 0.8rem; /* Slightly smaller font size for compact design */
+  color: #333; /* Default text color */
+  text-decoration: none; /* Remove underline */
+  cursor: pointer; /* Pointer cursor for hover */
+  padding: 3px 8px; /* Compact padding for clickable area */
+  margin: 2px; /* Minimal margin for tight spacing */
+  border: 1px solid #848383; /* Add border to differentiate options */
+  border-radius: 3px; /* Slightly rounded corners */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+  width: 120px; /* Fixed width for consistent size */
+  height: 30px; /* Fixed height for consistent size */
+  display: flex; /* Flexbox to align content */
+  align-items: center; /* Vertically center text */
+  justify-content: center; /* Horizontally center text */
+  box-sizing: border-box; /* Include border and padding in size */
+  overflow: hidden; /* Prevent content overflow */
+}
+
+.option:hover {
+  background-color: #f0f0f5; /* Light grey background on hover */
+  color: #2c3e50; /* Darker text on hover */
+  border-color: #2c3e50; /* Highlight border on hover */
+}
+
+.option.selected-option {
+  font-weight: bold; /* Bold for the selected option */
+  color: #2c3e50; /* Highlighted color */
+  background-color: #e8f4ff; /* Light blue background for the selected option */
+  border: 1px solid #2c3e50; /* Strong border for selected option */
+  width: 120px; /* Maintain the fixed width */
+  height: 30px; /* Maintain the fixed height */
+}
