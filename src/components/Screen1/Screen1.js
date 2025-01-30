@@ -1,17 +1,33 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Screen1.css";
 import data from "../data.json";
-import "bootstrap-icons/font/bootstrap-icons.css"; // Import Bootstrap Icons
+import "bootstrap-icons/font/bootstrap-icons.css";
+import Screen2 from "../Screen2/Screen2";
+import Screen3 from "../Screen3/Screen3";
+import Screen4 from "../Screen4/Screen4";
+import Screen5 from "../Screen5/Screen5";
 
 const Screen1 = () => {
   const [treeData, setTreeData] = useState([]);
   const [expandedNodes, setExpandedNodes] = useState({});
-  const [selectedNode, setSelectedNode] = useState(null); // State to hold selected node name
-  const [selectedOption, setSelectedOption] = useState(null); // State to hold selected option from the container
+  const [selectedNode, setSelectedNode] = useState(null);
+  const [isNavbarOpen, setIsNavbarOpen] = useState(window.innerWidth > 425);
+
   const navbarRef = useRef(null);
 
   useEffect(() => {
     setTreeData(data);
+
+    const handleResize = () => {
+      if (window.innerWidth > 425) {
+        setIsNavbarOpen(true);
+      } else {
+        setIsNavbarOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const handleToggle = (label) => {
@@ -22,11 +38,7 @@ const Screen1 = () => {
   };
 
   const handleDoubleClick = (label) => {
-    setSelectedNode(label); // Set the selected node when double-clicked
-  };
-
-  const handleOptionClick = (option) => {
-    setSelectedOption(option); // Set the selected option when clicked
+    setSelectedNode(label);
   };
 
   const renderTree = (nodes, level = 0) => (
@@ -34,7 +46,7 @@ const Screen1 = () => {
       <div className="node-header node-label">
         {nodes.children && (
           <span className="arrow" onClick={() => handleToggle(nodes.label)}>
-            &nbsp;
+             
             {expandedNodes[nodes.label] ? (
               <i className="bi bi-arrow-down-circle-fill"></i>
             ) : (
@@ -46,7 +58,7 @@ const Screen1 = () => {
           className={` ${expandedNodes[nodes.label] ? "bold" : ""}`}
           onDoubleClick={() => handleDoubleClick(nodes.label)}
         >
-          &nbsp;{nodes.label}
+           {nodes.label}
         </span>
       </div>
       {nodes.children && expandedNodes[nodes.label] && (
@@ -57,53 +69,40 @@ const Screen1 = () => {
     </div>
   );
 
-  const optionsGroup1 = [
-    "Security Options",
-    "Control and I/O Network",
-    "Server History",
-    "Server Displays",
-    "Control Confirmation",
-    "QVCS",
-    "Identification",
-  ];
-
-  const optionsGroup2 = [
-    "System Time",
-    "Statistics",
-    "Peer Connections",
-    "Hardware Information",
-    "FTE",
-    "UDP/TCP",
-    "IP/ICMP",
-    "Soft Failures",
-    "PDA Statistics",
-  ];
-
   return (
     <div>
-      <div className="left-navbar" ref={navbarRef}>
+      <button
+        className="navbar-toggle"
+        onClick={() => setIsNavbarOpen(!isNavbarOpen)}
+      >
+        {isNavbarOpen ? (
+          <i className="bi bi-arrow-left-circle"></i>
+        ) : (
+          <i className="bi bi-arrow-right-circle"></i>
+        )}
+      </button>
+      <div className={`left-navbar ${isNavbarOpen ? "open" : "closed"}`} ref={navbarRef}>
         {treeData.map((node) => renderTree(node))}
       </div>
-      <div className="content">
-        <h1>Static Page Content</h1>
-        <p>This is a static page with a tree-structured navbar on the left.</p>
-      </div>
 
-      {selectedNode && (
+      {selectedNode === "C300_262" && (
         <div className="selected-container">
-          <div className="options-container">
-            {optionsGroup1.concat(optionsGroup2).map((option) => (
-              <div
-                key={option}
-                className={`option ${
-                  selectedOption === option ? "selected-option" : ""
-                }`}
-                onClick={() => handleOptionClick(option)}
-              >
-                {option}
-              </div>
-            ))}
-          </div>
+          <Screen2 />
+        </div>
+      )}
+      {selectedNode === "C300_sim" && (
+        <div className="selected-container">
+          <Screen3 />
+        </div>
+      )}
+      {selectedNode === "FIM4_299" && (
+        <div className="selected-container">
+          <Screen4 />
+        </div>
+      )}
+      {selectedNode === "Unassigned" && (
+        <div className="selected-container">
+          <Screen5 />
         </div>
       )}
     </div>

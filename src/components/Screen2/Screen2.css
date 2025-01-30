@@ -1,0 +1,252 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+.screen-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background-color: #f9f9f9;
+}
+
+label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #4a69ff;
+  box-shadow: 0 0 8px rgba(74, 105, 255, 0.4);
+}
+
+input[type="color"],
+input[type="file"],
+input[type="range"],
+input[type="checkbox"],
+input[type="radio"] {
+  cursor: pointer;
+}
+
+textarea {
+  min-height: 80px;
+  resize: none;
+}
+
+.toggle-btn {
+  background: #4a69ff;
+  color: white;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-btn:hover {
+  background-color: #3b59d1;
+}
+
+.options-container.hidden {
+  display: none;
+}
+
+.screen2_main_tagname {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+
+.screen2_main_tagname label {
+  margin-right: 15px;
+  color: #555;
+  flex: 0 0 30%; /* Make labels occupy 30% of the container width */
+}
+
+.screen2_main_tagname input,
+.screen2_main_tagname select {
+  flex-grow: 1; /* Make inputs grow and take available space */
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.screen2_main_tagname select {
+  background-color: #f1f1f1;
+}
+
+.screen2_select {
+  width: 33%;
+}
+
+.content-container {
+  display: flex;
+  flex-grow: 1;
+  overflow-y: auto;
+  flex-direction: row;
+  gap: 20px;
+  padding: 20px; /* Added padding to avoid elements touching edges */
+  justify-content: space-between;
+}
+
+.left-content,
+.right-content {
+  flex: 1;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  min-width: 200px; /* Ensures they don’t shrink too much */
+}
+
+.left-content .input-fields,
+.right-content .input-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.screen2_special {
+  margin-top: 15px;
+}
+
+.network-config-container {
+  border: 2px solid #e4e4e4;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.network-config-container > .screen2_main_tagname {
+  margin-bottom: 10px;
+}
+
+.button-container {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #f9f9f9;
+  padding: 15px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  border-top: 1px solid #ddd;
+}
+
+.screen2-button {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.ok-btn {
+  background-color: #4a69ff;
+  color: white;
+}
+
+.cancel-btn {
+  background-color: #ccc;
+  color: #333;
+}
+
+.help-btn {
+  background-color: #f1f1f1;
+  color: #4a69ff;
+  border: 1px solid #4a69ff;
+}
+
+.screen2-button:hover {
+  transform: scale(1.05);
+}
+
+.screen2-button:active {
+  transform: scale(0.98);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .content-container {
+    flex-direction: column;
+    padding: 10px; /* Adjust padding to avoid overflow */
+    gap: 20px;
+  }
+
+  .left-content,
+  .right-content {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .screen2-button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  /* Make label and input stack on smaller screens */
+  .screen2_main_tagname {
+    flex-direction: column; /* Adjust label-input alignment for smaller screens */
+    align-items: flex-start;
+  }
+
+  .screen2_main_tagname label {
+    margin-right: 0;
+    margin-bottom: 5px; /* Add spacing between label and input */
+  }
+
+  .screen2_main_tagname input,
+  .screen2_main_tagname select {
+    width: 100%; /* Make inputs fill available space */
+  }
+}
+
+@media (max-width: 425px) {
+  .screen-container {
+    padding: 10px;
+  }
+
+  .toggle-btn {
+    display: block;
+    margin: auto;
+  }
+
+  .options-container {
+    transition: max-height 0.3s ease-in-out;
+  }
+
+  .options-container {
+    border-bottom: none;
+  }
+
+  .screen2_main_tagname input,
+  .screen2_main_tagname select {
+    width: auto;
+    max-width: 300px;
+  }
+
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+}
