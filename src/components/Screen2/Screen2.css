@@ -13,6 +13,7 @@
   overflow: hidden;
   position: relative;
   background-color: #f9f9f9;
+  padding: 10px; /* Ensure there's padding even on small screens */
 }
 
 label {
@@ -66,6 +67,7 @@ textarea {
   align-items: center;
   margin-bottom: 20px;
   justify-content: space-between;
+  flex-wrap: wrap; /* Allow elements to wrap for small screens */
 }
 
 .screen2_main_tagname label {
@@ -98,6 +100,7 @@ textarea {
   gap: 20px;
   padding: 20px; /* Added padding to avoid elements touching edges */
   justify-content: space-between;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
 }
 
 .left-content,
@@ -107,7 +110,7 @@ textarea {
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  min-width: 200px; /* Ensures they don’t shrink too much */
+  min-width: 250px; /* Adjust to avoid content overflowing on small screens */
 }
 
 .left-content .input-fields,
@@ -180,7 +183,7 @@ textarea {
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .content-container {
     flex-direction: column;
     padding: 10px; /* Adjust padding to avoid overflow */
@@ -220,7 +223,7 @@ textarea {
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 768px) {
   .screen-container {
     padding: 10px;
   }
@@ -248,5 +251,63 @@ textarea {
     flex-direction: column;
     align-items: center;
     gap: 15px;
+  }
+
+  .screen2_main_tagname {
+    flex-direction: column;
+  }
+
+  /* Decrease padding and margins for better use of space */
+  .screen2_main_tagname label {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  .screen2_main_tagname input,
+  .screen2_main_tagname select {
+    font-size: 14px;
+    padding: 6px;
+  }
+}
+
+@media (max-width: 425px) {
+  .screen-container {
+    padding: 10px;
+  }
+
+  .toggle-btn {
+    display: block;
+    margin: auto;
+  }
+
+  .screen2_main_tagname {
+    flex-direction: column;
+  }
+
+  .screen2_main_tagname label {
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+
+  .screen2_main_tagname input,
+  .screen2_main_tagname select {
+    width: 100%;
+    font-size: 14px;
+    padding: 6px;
+  }
+
+  .screen2_select {
+    width: 100%;
+  }
+
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .screen2-button {
+    width: 100%;
+    margin-bottom: 10px;
   }
 }

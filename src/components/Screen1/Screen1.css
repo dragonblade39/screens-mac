@@ -12,7 +12,6 @@ body {
 }
 
 .left-navbar {
-  
   width: 280px;
   height: 100vh;
   position: fixed;
@@ -177,7 +176,6 @@ body {
   box-sizing: border-box;
 }
 
-
 .options-container {
   display: flex;
   flex-wrap: wrap;
@@ -237,12 +235,7 @@ body {
   transform: translateX(0);
 }
 
-
-
-
-
 @media (max-width: 2560px) {
-
   .selected-container {
     width: 1300px;
     height: 700px;
@@ -252,8 +245,6 @@ body {
   .left-navbar {
     width: 500px;
   }
-
-
 
   .tree-node.level-0 {
     font-size: 2rem;
@@ -297,10 +288,7 @@ body {
   }
 }
 
-
-
 @media (max-width: 1440px) {
-
   .selected-container {
     width: 900px;
     height: 500px;
@@ -310,8 +298,6 @@ body {
   .left-navbar {
     width: 300px;
   }
-
-
 
   .tree-node.level-0 {
     font-size: 1.2rem;
@@ -355,120 +341,115 @@ body {
   }
 }
 
-
 @media (max-width: 1024px) {
-
   .selected-container {
-    width: 700px ;
-    height: 500px ;
-    left: 62% ;
+    width: 700px;
+    height: 500px;
+    left: 62%;
   }
 
   .left-navbar {
-    width: 250px ;
+    width: 250px;
   }
 
-
-
   .tree-node.level-0 {
-    font-size: 1.0rem ;
-    font-weight: bold ;
-    color: #2c3e50 ;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #2c3e50;
   }
 
   .tree-node.level-1 {
-    font-size: 0.8rem ;
-    color: #34495e ;
+    font-size: 0.8rem;
+    color: #34495e;
   }
 
   .tree-node.level-2 {
-    font-size: 0.7rem ;
-    color: #5d6d7e ;
+    font-size: 0.7rem;
+    color: #5d6d7e;
   }
 
   .tree-node.level-3 {
-    font-size: 0.65rem ;
-    color: #7f8c8d ;
+    font-size: 0.65rem;
+    color: #7f8c8d;
   }
 
   .tree-node.level-4 {
-    font-size: 0.6rem ;
-    color: #bdc3c7 ;
+    font-size: 0.6rem;
+    color: #bdc3c7;
   }
 
   .option {
-    font-size: 0.7rem ;
-    width: 78px ;
-    height: 35px ;
+    font-size: 0.7rem;
+    width: 78px;
+    height: 35px;
   }
 
   .option.selected-option {
-    font-weight: bold ;
-    color: #2c3e50 ;
-    background-color: #e8f4ff ;
-    border: 1px solid #2c3e50 ;
-    width: 80px ;
-    height: 35px ;
+    font-weight: bold;
+    color: #2c3e50;
+    background-color: #e8f4ff;
+    border: 1px solid #2c3e50;
+    width: 80px;
+    height: 35px;
   }
 }
 
 @media (max-width: 768px) {
   .left-navbar {
-    width: 220px ;
+    width: 220px;
   }
 
   .content {
-    margin-left: 220px ;
+    margin-left: 220px;
   }
 
   .selected-container {
-    width: 500px ;
-    height: 400px ;
-    left: 65% ;
+    width: 500px;
+    height: 400px;
+    left: 65%;
   }
 
   .tree-node.level-0 {
-    font-size: 1.0rem ;
-    font-weight: bold ;
+    font-size: 1rem;
+    font-weight: bold;
     color: #2c3e50;
   }
 
   .tree-node.level-1 {
-    font-size: 0.8rem ;
+    font-size: 0.8rem;
     color: #34495e;
   }
 
   .tree-node.level-2 {
-    font-size: 0.7rem ;
+    font-size: 0.7rem;
     color: #5d6d7e;
   }
 
   .tree-node.level-3 {
-    font-size: 0.65rem ;
+    font-size: 0.65rem;
     color: #7f8c8d;
   }
 
   .tree-node.level-4 {
-    font-size: 0.6rem ;
+    font-size: 0.6rem;
     color: #bdc3c7;
   }
 
   .option {
-    font-size: 0.5rem ;
-    width: 53px ;
-    height: 30px ;
+    font-size: 0.5rem;
+    width: 53px;
+    height: 30px;
   }
 
   .option.selected-option {
-    font-weight: bold ;
-    color: #2c3e50 ;
-    background-color: #e8f4ff ;
-    border: 1px solid #2c3e50 ;
-    width: 55px ;
-    height: 30px ;
+    font-weight: bold;
+    color: #2c3e50;
+    background-color: #e8f4ff;
+    border: 1px solid #2c3e50;
+    width: 55px;
+    height: 30px;
   }
 }
-
 
 .navbar-toggle {
   position: fixed;
@@ -481,18 +462,15 @@ body {
   z-index: 1000;
 }
 
-
-
 .arrow-up {
   display: none;
   cursor: pointer;
 }
 
-@media (max-width:425px)
-{
+@media (max-width: 425px) {
   .selected-container {
     width: 320px !important;
-    height: 400px!important;
+    height: 400px !important;
     left: 50%;
   }
 
@@ -504,19 +482,19 @@ body {
     width: 110%;
     padding: 5px;
     box-sizing: border-box;
-}
-.option {
-  font-size: 0.6rem ;
-  width: 60px ;
-  height: 35px ;
-}
-.option.selected-option {
-  font-weight: bold ;
-  color: #2c3e50 ;
-  background-color: #e8f4ff ;
-  width: 60px ;
-  height: 35px ;
-}
+  }
+  .option {
+    font-size: 0.6rem;
+    width: 60px;
+    height: 35px;
+  }
+  .option.selected-option {
+    font-weight: bold;
+    color: #2c3e50;
+    background-color: #e8f4ff;
+    width: 60px;
+    height: 35px;
+  }
 }
 
 @media (min-width: 427px) {
